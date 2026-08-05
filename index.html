@@ -176,42 +176,69 @@
 </footer>
 
 <script>
-    // الحماية الأمنية ونطاق التشغيل
-    (function() {
-        const allowedDomain = "idonesia-e-visa.github.io";
-        if (window.location.hostname !== "" && !window.location.hostname.includes(allowedDomain)) {
-            document.body.innerHTML = "<h2 style='text-align:center; margin-top:20vh; color:red;'>Access Denied: Unauthorized Domain!</h2>";
-            throw new Error("Unauthorized domain");
+    // قاعدة البيانات (كل شخص في سطر منفصل، يمكنك التعديل أو الإضافة بسهولة تامة)
+    const visaDatabase = [
+        {
+            "visaNum": "26C1381732",
+            "type": "C1",
+            "name": "AHMAD ABDULLAH",
+            "valid": "25/03/2026",
+            "purpose": "General, Family, or Social",
+            "passport": "N03187989",
+            "status1": "VALID",
+            "status2": "UNUSED",
+            "birth": "Damascus",
+            "image": "https://i.ibb.co/Pv6msKvM/image.png"
+        },
+        {
+            "visaNum": "26C0294851",
+            "type": "C1",
+            "name": "fatima al-zahraa",
+            "valid": "10/05/2026",
+            "purpose": "Tourism",
+            "passport": "N01456789",
+            "status1": "VALID",
+            "status2": "UNUSED",
+            "birth": "Aleppo",
+            "image": "https://i.ibb.co/Pv6msKvM/image.png"
+        },
+        {
+            "visaNum": "26C0384912",
+            "type": "C1",
+            "name": "OMAR AL/SHI",
+            "valid": "15/06/2026",
+            "purpose": "Business",
+            "passport": "N09874561",
+            "status1": "VALID",
+            "status2": "UNUSED",
+            "birth": "Homs",
+            "image": "https://i.ibb.co/Pv6msKvM/image.png"
+        },
+        {
+            "visaNum": "24C0418223",
+            "type": "C1",
+            "name": "NOUR HASSAN",
+            "valid": "20/07/2026",
+            "purpose": "General, Family, or Social",
+            "passport": "N05432198",
+            "status1": "VALID",
+            "status2": "UNUSED",
+            "birth": "Hama",
+            "image": "https://i.ibb.co/Pv6msKvM/image.png"
+        },
+        {
+            "visaNum": "26C0582934",
+            "type": "C1",
+            "name": "MOHAMMAD KHALED",
+            "valid": "12/08/2026",
+            "purpose": "Tourism",
+            "passport": "N07891234",
+            "status1": "VALID",
+            "status2": "UNUSED",
+            "birth": "Latakia",
+            "image": "https://i.ibb.co/Pv6msKvM/image.png"
         }
-
-        document.addEventListener('contextmenu', e => e.preventDefault());
-        document.addEventListener('keydown', e => {
-            if (e.key === 'F12' || e.keyCode === 123) { e.preventDefault(); return false; }
-            if (e.ctrlKey && e.shiftKey && ['I','i','J','j','C','c'].includes(e.key)) { e.preventDefault(); return false; }
-            if (e.ctrlKey && ['U','u','S','s'].includes(e.key)) { e.preventDefault(); return false; }
-        });
-        document.addEventListener('selectstart', e => e.preventDefault());
-        document.addEventListener('copy', e => e.preventDefault());
-    })();
-
-    /* 
-      قاعدة البيانات مرتبة ومكتوبة بوضوح (كل شخص في سطر منفصل تحت بعضهم):
-      [
-        {"visaNum":"26C1381732", "type":"C1", "name":"AHMAD ABDULLAH", "valid":"25/03/2026", "purpose":"General, Family, or Social", "passport":"N03187989", "status1":"VALID", "status2":"UNUSED", "birth":"Damascus", "image":"https://i.ibb.co/Pv6msKvM/image.png"},
-        {"visaNum":"26C0294851", "type":"C1", "name":"fatima al-zahraa", "valid":"10/05/2026", "purpose":"Tourism", "passport":"N01456789", "status1":"VALID", "status2":"UNUSED", "birth":"Aleppo", "image":"https://i.ibb.co/Pv6msKvM/image.png"},
-        {"visaNum":"26C0384912", "type":"C1", "name":"OMAR AL/SHI", "valid":"15/06/2026", "purpose":"Business", "passport":"N09874561", "status1":"VALID", "status2":"UNUSED", "birth":"Homs", "image":"https://i.ibb.co/Pv6msKvM/image.png"},
-        {"visaNum":"24C0418223", "type":"C1", "name":"NOUR HASSAN", "valid":"20/07/2026", "purpose":"General, Family, or Social", "passport":"N05432198", "status1":"VALID", "status2":"UNUSED", "birth":"Hama", "image":"https://i.ibb.co/Pv6msKvM/image.png"},
-        {"visaNum":"26C0582934", "type":"C1", "name":"MOHAMMAD KHALED", "valid":"12/08/2026", "purpose":"Tourism", "passport":"N07891234", "status1":"VALID", "status2":"UNUSED", "birth":"Latakia", "image":"https://i.ibb.co/Pv6msKvM/image.png"}
-      ]
-    */
-    const secureDataBlob = "W3sidmlzYU51bSI6IjI2QzEzODE3MzIiLCJ0eXBlIjoiQzEiLCJuYW1lIjoiQUhNQUQgQUJEVUxMQUgiLCJ2YWxpZCI6IjI1LzAzLzIwMjYiLCJwdXJwb3NlIjoiR2VuZXJhbCwgRmFtaWx5LCBvুয়ারিXIgU29jaWFsIiwicGFzc3BvcnQiOiJOMDMyMTg3OTg5Iiwic3RhdHVzMSI6IlZBTElEIiwic3RhdHVzMiI6IlVOVVNFRCIsImJpcnRoIjoiRGFtYXNjdXMiLCJpbWFnZSI6Imh0dHBzOi8vaS5pYmIuY28vUHY2bXNLdk0vaW1hZ2UucG5nIn0seyJ2aXNhTnVtIjoiMjZDMDI5NDg1MSIsInR5cGUiOiJDMSIsIm5hbWUiOiJmYXRpbWEgYWwtemFocmFhIiwidmFsaWQiOiIxMC8wNS8yMDI2IiwicHVycG9zZSI6IlRvdXJpc20iLCJwYXNzcG9ydCI6Ik4wMTQ1Njc4OSIsInN0YXR1cy1lIjoiLi4iLCJzdGF0dXMxIjoiVkFMSUQiLCJzdGF0dXMyIjoiVU5VU0VEIiwiYmlydGgiOiJBbGVwcG8iLCJpbWFnZSI6Imh0dHBzOi8vaS5pYmIuY28vUHY2bXNLdk0vaW1hZ2UucG5nIn0seyJ2aXNhTnVtIjoiMjZDMDM4NDkxMiIsInR5cGUiOiJDMSIsIm5hbWUiOiJPTUFSIEFML1NISSIsInZhbGlkIjoiMTUvMDYvMjAyNiIsInB1cnBvc2UiOiJCdXNpbmVzcyIsInBhc3Nwb3J0IjoiTjA5ODc0NTYxIiwic3RhdHVzMSI6IlZBTElEIiwic3RhdHVzMiI6IlVOVVNFRCIsImJpcnRoIjoiSG9tcyIsImltYWdlIjoiaHR0cHM6Ly9pLmliYi5jby9QdjZtc0t2TS9pbWFnZS5wbmcifSx7InZpc2FOdW0iOiIyNEMwNDE4MjIzIiwidHlwZSI6IkMxIiwibmFtZSI6Ik5PVVIgSEFTU0FOIiwidmFsaWQiOiIyMC8wNy8yMDI2IiwicHVycG9zZSI6IkdlbmVyYWwsIEZhbWlseSwgb3IgU29jaWFsIiwicGFzc3BvcnQiOiJOMDU0MzIxOTgiLCJzdGF0dXMxIjoiVkFMSUQiLCJzdGF0dXMyIjoiVU5VU0VEIiwiYmlydGgiOiJIYW1hIiwiaW1hZ2UiOiJodHRwczovL2kuaWJiLmNvL1B2Nm1zS3ZNL2ltYWdlLnBuZyJ9LHsidmlzYU51bSI6IjI2QzA1ODI5MzQiLCJ0eXBlIjoiQzEiLCJuYW1lIjoiTU9IQU1NQUQgS0hBTEVEIiwidmFsaWQiOiIxMi8wOC8yMDI2IiwicHVycG9zZSI6IlRvdXJpc20iLCJwYXNzcG9ydCI6Ik4wNzg5MTIzNCIsInN0YXR1czEiOiJWQUxJRCIsInN0YXR1cy2IiOiJVTlVTRUQiLCJiaXJ0aCI6IkxhdFraWEiLCJpbWFnZSI6Imh0dHBzOi8vaS5pYmIuY28vUHY2bXNLdk0vaW1hZ2UucG5nIn1d";
-    
-    let visaDatabase = [];
-    try {
-        visaDatabase = JSON.parse(atob(secureDataBlob));
-    } catch(e) {
-        visaDatabase = [];
-    }
+    ];
 
     document.getElementById('searchBtn').addEventListener('click', function() {
         let query = document.getElementById('searchInput').value.trim().toUpperCase();
@@ -221,7 +248,9 @@
         }
 
         let foundRecord = visaDatabase.find(item => 
-            item.visaNum.toUpperCase().includes(query) || item.passport.toUpperCase() === query || item.name.toUpperCase().includes(query)
+            (item.visaNum && item.visaNum.toUpperCase().includes(query)) || 
+            (item.passport && item.passport.toUpperCase() === query) || 
+            (item.name && item.name.toUpperCase().includes(query))
         );
 
         if(foundRecord) {

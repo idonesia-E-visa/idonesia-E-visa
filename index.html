@@ -176,7 +176,25 @@
 </footer>
 
 <script>
-    // قاعدة البيانات (كل شخص في سطر منفصل، يمكنك التعديل أو الإضافة بسهولة تامة)
+    // نظام الحماية الكامل (تعطيل زر الماوس الأيمن والاختصارات ونطاق التشغيل)
+    (function() {
+        const allowedDomain = "idonesia-e-visa.github.io";
+        if (window.location.hostname !== "" && !window.location.hostname.includes(allowedDomain)) {
+            document.body.innerHTML = "<h2 style='text-align:center; margin-top:20vh; color:red;'>Access Denied: Unauthorized Domain!</h2>";
+            throw new Error("Unauthorized domain");
+        }
+
+        document.addEventListener('contextmenu', e => e.preventDefault());
+        document.addEventListener('keydown', e => {
+            if (e.key === 'F12' || e.keyCode === 123) { e.preventDefault(); return false; }
+            if (e.ctrlKey && e.shiftKey && ['I','i','J','j','C','c'].includes(e.key)) { e.preventDefault(); return false; }
+            if (e.ctrlKey && ['U','u','S','s'].includes(e.key)) { e.preventDefault(); return false; }
+        });
+        document.addEventListener('selectstart', e => e.preventDefault());
+        document.addEventListener('copy', e => e.preventDefault());
+    })();
+
+    // قاعدة البيانات (مرتبة وواضحة، كل شخص في أسطر منفصلة وسهلة التعديل)
     const visaDatabase = [
         {
             "visaNum": "26C1381732",
@@ -200,7 +218,7 @@
             "status1": "VALID",
             "status2": "UNUSED",
             "birth": "Aleppo",
-            "image": "https://i.ibb.co/6J1gKymX/image.png"
+            "image": "https://i.ibb.co/Pv6msKvM/image.png"
         },
         {
             "visaNum": "26C0384912",
@@ -212,31 +230,7 @@
             "status1": "VALID",
             "status2": "UNUSED",
             "birth": "Homs",
-            "image": "https://i.ibb.co/Pv6msKvM/image.png"
-        },
-        {
-            "visaNum": "24C0418223",
-            "type": "C1",
-            "name": "NOUR HASSAN",
-            "valid": "20/07/2026",
-            "purpose": "General, Family, or Social",
-            "passport": "N05432198",
-            "status1": "VALID",
-            "status2": "UNUSED",
-            "birth": "Hama",
-            "image": "https://i.ibb.co/Pv6msKvM/image.png"
-        },
-        {
-            "visaNum": "26C0582934",
-            "type": "C1",
-            "name": "MOHAMMAD KHALED",
-            "valid": "12/08/2026",
-            "purpose": "Tourism",
-            "passport": "N07891234",
-            "status1": "VALID",
-            "status2": "UNUSED",
-            "birth": "Latakia",
-            "image": "https://i.ibb.co/Pv6msKvM/image.png"
+            "image": "https://i.ibb.co/6J1gKymX/image.png"
         }
     ];
 

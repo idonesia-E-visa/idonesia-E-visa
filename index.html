@@ -194,8 +194,17 @@
         document.addEventListener('copy', e => e.preventDefault());
     })();
 
-    // قاعدة البيانات المشفرة بالكامل (لا توجد أي بيانات مكشوفة في الكود)
-    const secureDataBlob = "W3sidmlzYU51bSI6IjI2QzEzODE3MzIiLCJ0eXBlIjoiQzEiLCJuYW1lIjoiQUhNQUQgQUJEVUxMQUgiLCJ2YWxpZCI6IjI1LzAzLzIwMjYiLCJwdXJwb3NlIjoiR2VuZXJhbCwgRmFtaWx5LCBvciBTb2NpYWwiLCJwYXNzcG9ydCI6Ik4wMzE4Nzk4OSIsInN0YXR1czEiOiJWQUxJRCIsInN0YXR1cy2IiOiJVTlVTRUQiLCJiaXJ0aCI6IkRhbWFzY3VzIiwiaW1hZ2UiOiJodHRwczovL2kuaWJiLmNvL1B2Nm1zS3ZNL2ltYWdlLnBuZyJ9LHsidmlzYU51bSI6IjI2QzAyOTQ4NTEiLCJ0eXBlIjoiQzEiLCJuYW1lIjoiZmF0aW1hIGFsLXphaHJhYSIsInZhbGlkIjoiMTAvMDUvMjAyNiIsInB1cnBvc2UiOiJUb3VyaXNtIiwicGFzc3BvcnQiOiJOMDE0NTY3ODkiLCJzdGF0dXMxIjoiVkFMSUQiLCJzdGF0dXMyIjoiVU5VU0VEIiwiYmlydGgiOiJBbGVwcG8iLCJpbWFnZSI6Imh0dHBzOi8vaS5pYmIuY28vUHY2bXNLdk0vaW1hZ2UucG5nIn0seyJ2aXNhTnVtIjoiMjZDMDM4NDkxMiIsInR5cGUiOiJDMSIsIm5hbWUiOiJPTUFSIEFML1NISSIsInZhbGlkIjoiMTUvMDYvMjAyNiIsInB1cnBvc2UiOiJCdXNpbmVzcyIsInBhc3Nwb3J0IjoiTjA5ODc0NTYxIiwic3RhdHVzMSI6IlZBTElEIiwic3RhdHVzMiI6IlVOVVNFRCIsImJpcnRoIjoiSG9tcyIsImltYWdlIjoiaHR0cHM6Ly9pLmliYi5jby9QdjZtc0t2TS9pbWFnZS5wbmcifSx7InZpc2FOdW0iOiIyNEMwNDE4MjIzIiwidHlwZSI6IkMxIiwibmFtZSI6Ik5PVVIgSEFTU0FOIiwidmFsaWQiOiIyMC8wNy8yMDI2IiwicHVycG9zZSI6IkdlbmVyYWwsIEZhbWlseSwgb3IgU29jaWFsIiwicGFzc3BvcnQiOiJOMDU0MzIxOTgiLCJzdGF0dXMxIjoiVkFMSUQiLCJzdGF0dXMyIjoiVU5VU0VEIiwiYmlydGgiOiJIYW1hIiwiaW1hZ2UiOiJodHRwczovL2kuaWJiLmNvL1B2Nm1zS3ZNL2ltYWdlLnBuZyJ9LHsidmlzYU51bSI6IjI2QzA1ODI5MzQiLCJ0eXBlIjoiQzEiLCJuYW1lIjoiTU9IQU1NQUQgS0hBTEVEIiwidmFsaWQiOiIxMi8wOC8yMDI2IiwicHVycG9zZSI6IlRvdXJpc20iLCJwYXNzcG9ydCI6Ik4wNzg5MTIzNCIsInN0YXR1czEiOiJWQUxJRCIsInN0YXR1cy2IiOiJVTlVTRUQiLCJiaXJ0aCI6IkxhdFraWEiLCJpbWFnZSI6Imh0dHBzOi8vaS5pYmIuY28vUHY2bXNLdk0vaW1hZ2UucG5nIn1d";
+    /* 
+      قاعدة البيانات مرتبة ومكتوبة بوضوح (كل شخص في سطر منفصل تحت بعضهم):
+      [
+        {"visaNum":"26C1381732", "type":"C1", "name":"AHMAD ABDULLAH", "valid":"25/03/2026", "purpose":"General, Family, or Social", "passport":"N03187989", "status1":"VALID", "status2":"UNUSED", "birth":"Damascus", "image":"https://i.ibb.co/Pv6msKvM/image.png"},
+        {"visaNum":"26C0294851", "type":"C1", "name":"fatima al-zahraa", "valid":"10/05/2026", "purpose":"Tourism", "passport":"N01456789", "status1":"VALID", "status2":"UNUSED", "birth":"Aleppo", "image":"https://i.ibb.co/Pv6msKvM/image.png"},
+        {"visaNum":"26C0384912", "type":"C1", "name":"OMAR AL/SHI", "valid":"15/06/2026", "purpose":"Business", "passport":"N09874561", "status1":"VALID", "status2":"UNUSED", "birth":"Homs", "image":"https://i.ibb.co/Pv6msKvM/image.png"},
+        {"visaNum":"24C0418223", "type":"C1", "name":"NOUR HASSAN", "valid":"20/07/2026", "purpose":"General, Family, or Social", "passport":"N05432198", "status1":"VALID", "status2":"UNUSED", "birth":"Hama", "image":"https://i.ibb.co/Pv6msKvM/image.png"},
+        {"visaNum":"26C0582934", "type":"C1", "name":"MOHAMMAD KHALED", "valid":"12/08/2026", "purpose":"Tourism", "passport":"N07891234", "status1":"VALID", "status2":"UNUSED", "birth":"Latakia", "image":"https://i.ibb.co/Pv6msKvM/image.png"}
+      ]
+    */
+    const secureDataBlob = "W3sidmlzYU51bSI6IjI2QzEzODE3MzIiLCJ0eXBlIjoiQzEiLCJuYW1lIjoiQUhNQUQgQUJEVUxMQUgiLCJ2YWxpZCI6IjI1LzAzLzIwMjYiLCJwdXJwb3NlIjoiR2VuZXJhbCwgRmFtaWx5LCBvুয়ারিXIgU29jaWFsIiwicGFzc3BvcnQiOiJOMDMyMTg3OTg5Iiwic3RhdHVzMSI6IlZBTElEIiwic3RhdHVzMiI6IlVOVVNFRCIsImJpcnRoIjoiRGFtYXNjdXMiLCJpbWFnZSI6Imh0dHBzOi8vaS5pYmIuY28vUHY2bXNLdk0vaW1hZ2UucG5nIn0seyJ2aXNhTnVtIjoiMjZDMDI5NDg1MSIsInR5cGUiOiJDMSIsIm5hbWUiOiJmYXRpbWEgYWwtemFocmFhIiwidmFsaWQiOiIxMC8wNS8yMDI2IiwicHVycG9zZSI6IlRvdXJpc20iLCJwYXNzcG9ydCI6Ik4wMTQ1Njc4OSIsInN0YXR1cy1lIjoiLi4iLCJzdGF0dXMxIjoiVkFMSUQiLCJzdGF0dXMyIjoiVU5VU0VEIiwiYmlydGgiOiJBbGVwcG8iLCJpbWFnZSI6Imh0dHBzOi8vaS5pYmIuY28vUHY2bXNLdk0vaW1hZ2UucG5nIn0seyJ2aXNhTnVtIjoiMjZDMDM4NDkxMiIsInR5cGUiOiJDMSIsIm5hbWUiOiJPTUFSIEFML1NISSIsInZhbGlkIjoiMTUvMDYvMjAyNiIsInB1cnBvc2UiOiJCdXNpbmVzcyIsInBhc3Nwb3J0IjoiTjA5ODc0NTYxIiwic3RhdHVzMSI6IlZBTElEIiwic3RhdHVzMiI6IlVOVVNFRCIsImJpcnRoIjoiSG9tcyIsImltYWdlIjoiaHR0cHM6Ly9pLmliYi5jby9QdjZtc0t2TS9pbWFnZS5wbmcifSx7InZpc2FOdW0iOiIyNEMwNDE4MjIzIiwidHlwZSI6IkMxIiwibmFtZSI6Ik5PVVIgSEFTU0FOIiwidmFsaWQiOiIyMC8wNy8yMDI2IiwicHVycG9zZSI6IkdlbmVyYWwsIEZhbWlseSwgb3IgU29jaWFsIiwicGFzc3BvcnQiOiJOMDU0MzIxOTgiLCJzdGF0dXMxIjoiVkFMSUQiLCJzdGF0dXMyIjoiVU5VU0VEIiwiYmlydGgiOiJIYW1hIiwiaW1hZ2UiOiJodHRwczovL2kuaWJiLmNvL1B2Nm1zS3ZNL2ltYWdlLnBuZyJ9LHsidmlzYU51bSI6IjI2QzA1ODI5MzQiLCJ0eXBlIjoiQzEiLCJuYW1lIjoiTU9IQU1NQUQgS0hBTEVEIiwidmFsaWQiOiIxMi8wOC8yMDI2IiwicHVycG9zZSI6IlRvdXJpc20iLCJwYXNzcG9ydCI6Ik4wNzg5MTIzNCIsInN0YXR1czEiOiJWQUxJRCIsInN0YXR1cy2IiOiJVTlVTRUQiLCJiaXJ0aCI6IkxhdFraWEiLCJpbWFnZSI6Imh0dHBzOi8vaS5pYmIuY28vUHY2bXNLdk0vaW1hZ2UucG5nIn1d";
     
     let visaDatabase = [];
     try {
@@ -216,7 +225,7 @@
         );
 
         if(foundRecord) {
-            document.getElementById('resVisaNum').innerText = foundRecord.visaNum + " +89 day";
+            document.getElementById('resVisaNum').innerText = foundRecord.visaNum;
             document.getElementById('resVisaType').innerText = foundRecord.type;
             document.getElementById('resName').innerText = foundRecord.name;
             document.getElementById('resValidUntil').innerText = foundRecord.valid;

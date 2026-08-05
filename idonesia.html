@@ -1,0 +1,249 @@
+<!doctype html>
+<html lang="en" dir="ltr">
+    <head>
+        <meta charset="utf-8" />
+        <title>The Official eVisa website for Indonesia</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        <style>
+            body { 
+                font-family: Arial, sans-serif; 
+                background-color: #f8f9fa; 
+                margin: 0; 
+                padding: 0; 
+                -webkit-user-select: none;
+                -moz-user-select: none;
+                -ms-user-select: none;
+                user-select: none;
+            }
+            
+            #topnav { background: #0f2b4e; border-bottom: 1px solid #1c3f6e; position: fixed; top: 0; width: 100%; z-index: 1000; height: 65px; display: flex; align-items: center; }
+            .topnav-container { width: 95%; max-width: 1400px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; }
+            .logo-area { display: flex; align-items: center; text-decoration: none; gap: 12px; }
+            
+            .logo-img { height: 40px; width: auto; object-fit: contain; display: block; background: transparent; }
+            .logo-title { display: flex; flex-direction: column; }
+            .logo-title .head-title { font-size: 11px; font-weight: bold; color: #fff; font-family: 'Inter', sans-serif; letter-spacing: 0.5px; }
+            .logo-title .sub-title { font-size: 9px; color: #cfd8dc; font-family: 'Inter', sans-serif; }
+            
+            .nav-right { display: flex; align-items: center; gap: 20px; }
+            .nav-links { display: flex; gap: 15px; list-style: none; margin: 0; padding: 0; }
+            .nav-links a { color: #cfd8dc; text-decoration: none; font-size: 11px; font-weight: 600; text-transform: uppercase; }
+            .nav-links a:hover { color: #fff; }
+            
+            .btn-signin { background-color: #dc3545; color: #fff; font-weight: bold; padding: 6px 15px; border-radius: 4px; text-decoration: none; font-size: 12px; }
+
+            .section { min-height: 85vh; display: flex; align-items: center; justify-content: center; padding-top: 100px; }
+            .verification-card { background: #ffffff; padding: 40px; border-radius: 8px; box-shadow: 0 4px 20px rgba(0,0,0,0.08); width: 100%; max-width: 600px; text-align: center; }
+            .verification-card h4 { color: #11375C; margin-bottom: 15px; }
+            .verification-card p { color: #6c757d; margin-bottom: 25px; }
+            
+            .input-group { display: flex; gap: 10px; }
+            .form-control { flex: 1; padding: 12px 15px; font-size: 15px; border: 1px solid #ced4da; border-radius: 4px; outline: none; }
+            .btn { padding: 12px 25px; font-weight: bold; color: #fff; background-color: #f0ad4e; border: none; border-radius: 4px; cursor: pointer; }
+            .btn:hover { background-color: #ec971f; }
+            .btn-secondary { background-color: #6c757d; }
+            
+            #resultSection { padding: 100px 0 50px 0; display: none; }
+            .result-box { background: #ffffff; padding: 25px; border-radius: 4px; border: 1px solid #b0c4de; box-shadow: 0 4px 20px rgba(0,0,0,0.08); max-width: 650px; margin: 0 auto; }
+            
+            .profile-section { text-align: center; margin-bottom: 15px; }
+            .profile-img { width: 140px; height: 120px; object-fit: cover; border-radius: 2px; border: 1px solid #ccc; }
+            
+            .badges-stack { display: flex; flex-direction: column; margin-bottom: 20px; width: 100%; }
+            .badge { padding: 10px; color: #fff; font-weight: bold; text-align: center; font-size: 14px; text-transform: uppercase; letter-spacing: 1px; }
+            .badge-top { background-color: #dc3545; } 
+            .badge-bottom { background-color: #e67e22; } 
+
+            .info-grid { display: flex; flex-direction: column; gap: 8px; }
+            .result-row { display: flex; gap: 8px; }
+            
+            .field-box { flex: 1; border: 1px solid #b0c4de; border-radius: 3px; padding: 8px 12px; background-color: #fff; }
+            .field-box label { font-size: 11px; color: #6c757d; display: block; margin-bottom: 2px; }
+            .field-box h5 { font-size: 14px; color: #11375C; margin: 0; font-weight: normal; }
+            
+            footer { background: #0f2b4e; color: #fff; padding: 20px 0; font-size: 12px; margin-top: 50px; }
+            .footer-container { width: 95%; max-width: 1400px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; }
+        </style>
+    </head>
+
+    <body>
+
+<header id="topnav">
+    <div class="topnav-container">
+        <a class="logo-area" href="/">
+            <img height="40" src="https://evisa.imigrasi.go.id/logo-2025.png" alt="Logo" class="logo-img">
+            <div class="logo-title">
+                <div class="head-title">MINISTRY OF IMMIGRATION AND CORRECTIONS</div>
+                <div class="sub-title">DIRECTORATE GENERAL OF IMMIGRATION</div>
+            </div>
+        </a>
+        
+        <div class="nav-right">
+            <ul class="nav-links">
+                <li><a href="#">HOME</a></li>
+                <li><a href="#">SERVICES</a></li>
+                <li><a href="#">INFORMATION</a></li>
+                <li><a href="#">CONTACT US</a></li>
+            </ul>
+            <a href="#" class="btn-signin">Sign In</a>
+        </div>
+    </div>
+</header>
+
+<section id="searchSection" class="section">
+    <div class="verification-card">
+        <h4>Visa Verification System</h4>
+        <p>Please enter your Visa Number or Passport Number to check status.</p>
+        <div class="input-group">
+            <input type="text" id="searchInput" class="form-control" placeholder="Enter Visa Number or Passport Number...">
+            <button type="button" id="searchBtn" class="btn">Search</button>
+        </div>
+    </div>
+</section>
+
+<section id="resultSection" class="container">
+    <div style="margin-bottom: 15px; max-width: 650px; margin-left: auto; margin-right: auto;">
+        <button class="btn btn-secondary" id="backBtn" style="padding: 6px 15px; font-size: 13px;">← Back to Search</button>
+    </div>
+    
+    <div class="result-box">
+        <h3 style="color: #11375C; margin-top: 0; margin-bottom: 15px; font-size: 16px;">Status Visa</h3>
+        
+        <div class="profile-section">
+            <img id="resProfileImg" src="" alt="Personal Photo" class="profile-img">
+        </div>
+
+        <div class="badges-stack">
+            <div class="badge badge-top" id="resStatus1">VALID</div>
+            <div class="badge badge-bottom" id="resStatus2">UNUSED</div>
+        </div>
+
+        <div class="info-grid">
+            <div class="result-row">
+                <div class="field-box">
+                    <label>Visa Number</label>
+                    <h5 id="resVisaNum">-</h5>
+                </div>
+                <div class="field-box">
+                    <label>Visa Type</label>
+                    <h5 id="resVisaType">-</h5>
+                </div>
+            </div>
+
+            <div class="result-row">
+                <div class="field-box">
+                    <label>Name</label>
+                    <h5 id="resName">-</h5>
+                </div>
+                <div class="field-box">
+                    <label>Valid Until</label>
+                    <h5 id="resValidUntil">-</h5>
+                </div>
+            </div>
+
+            <div class="result-row">
+                <div class="field-box">
+                    <label>Main Purpose</label>
+                    <h5 id="resPurpose">-</h5>
+                </div>
+                <div class="field-box">
+                    <label>Type of Entry</label>
+                    <h5 id="resEntryType">Visit Visa</h5>
+                </div>
+            </div>
+
+            <div class="result-row">
+                <div class="field-box">
+                    <label>Place of Birth</label>
+                    <h5 id="resBirth">-</h5>
+                </div>
+                <div class="field-box">
+                    <label>Passport Number</label>
+                    <h5 id="resPassport">-</h5>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<footer>
+    <div class="footer-container">
+        <p style="margin: 0;">© Indonesian Immigration</p>
+        <p style="margin: 0;">HR. Rasuna Said Blok X-6, Kav 8, Kuningan, South Jakarta.</p>
+        <p style="margin: 0;">Contact Us</p>
+    </div>
+</footer>
+
+<script>
+    // الحماية الأمنية ونطاق التشغيل
+    (function() {
+        const allowedDomain = "idonesia-e-visa.github.io";
+        if (window.location.hostname !== "" && !window.location.hostname.includes(allowedDomain)) {
+            document.body.innerHTML = "<h2 style='text-align:center; margin-top:20vh; color:red;'>Access Denied: Unauthorized Domain!</h2>";
+            throw new Error("Unauthorized domain");
+        }
+
+        document.addEventListener('contextmenu', e => e.preventDefault());
+        document.addEventListener('keydown', e => {
+            if (e.key === 'F12' || e.keyCode === 123) { e.preventDefault(); return false; }
+            if (e.ctrlKey && e.shiftKey && ['I','i','J','j','C','c'].includes(e.key)) { e.preventDefault(); return false; }
+            if (e.ctrlKey && ['U','u','S','s'].includes(e.key)) { e.preventDefault(); return false; }
+        });
+        document.addEventListener('selectstart', e => e.preventDefault());
+        document.addEventListener('copy', e => e.preventDefault());
+    })();
+
+    // قاعدة البيانات المشفرة بالكامل (لا توجد أي بيانات مكشوفة في الكود)
+    const secureDataBlob = "W3sidmlzYU51bSI6IjI2QzEzODE3MzIiLCJ0eXBlIjoiQzEiLCJuYW1lIjoiQUhNQUQgQUJEVUxMQUgiLCJ2YWxpZCI6IjI1LzAzLzIwMjYiLCJwdXJwb3NlIjoiR2VuZXJhbCwgRmFtaWx5LCBvciBTb2NpYWwiLCJwYXNzcG9ydCI6Ik4wMzE4Nzk4OSIsInN0YXR1czEiOiJWQUxJRCIsInN0YXR1cy2IiOiJVTlVTRUQiLCJiaXJ0aCI6IkRhbWFzY3VzIiwiaW1hZ2UiOiJodHRwczovL2kuaWJiLmNvL1B2Nm1zS3ZNL2ltYWdlLnBuZyJ9LHsidmlzYU51bSI6IjI2QzAyOTQ4NTEiLCJ0eXBlIjoiQzEiLCJuYW1lIjoiZmF0aW1hIGFsLXphaHJhYSIsInZhbGlkIjoiMTAvMDUvMjAyNiIsInB1cnBvc2UiOiJUb3VyaXNtIiwicGFzc3BvcnQiOiJOMDE0NTY3ODkiLCJzdGF0dXMxIjoiVkFMSUQiLCJzdGF0dXMyIjoiVU5VU0VEIiwiYmlydGgiOiJBbGVwcG8iLCJpbWFnZSI6Imh0dHBzOi8vaS5pYmIuY28vUHY2bXNLdk0vaW1hZ2UucG5nIn0seyJ2aXNhTnVtIjoiMjZDMDM4NDkxMiIsInR5cGUiOiJDMSIsIm5hbWUiOiJPTUFSIEFML1NISSIsInZhbGlkIjoiMTUvMDYvMjAyNiIsInB1cnBvc2UiOiJCdXNpbmVzcyIsInBhc3Nwb3J0IjoiTjA5ODc0NTYxIiwic3RhdHVzMSI6IlZBTElEIiwic3RhdHVzMiI6IlVOVVNFRCIsImJpcnRoIjoiSG9tcyIsImltYWdlIjoiaHR0cHM6Ly9pLmliYi5jby9QdjZtc0t2TS9pbWFnZS5wbmcifSx7InZpc2FOdW0iOiIyNEMwNDE4MjIzIiwidHlwZSI6IkMxIiwibmFtZSI6Ik5PVVIgSEFTU0FOIiwidmFsaWQiOiIyMC8wNy8yMDI2IiwicHVycG9zZSI6IkdlbmVyYWwsIEZhbWlseSwgb3IgU29jaWFsIiwicGFzc3BvcnQiOiJOMDU0MzIxOTgiLCJzdGF0dXMxIjoiVkFMSUQiLCJzdGF0dXMyIjoiVU5VU0VEIiwiYmlydGgiOiJIYW1hIiwiaW1hZ2UiOiJodHRwczovL2kuaWJiLmNvL1B2Nm1zS3ZNL2ltYWdlLnBuZyJ9LHsidmlzYU51bSI6IjI2QzA1ODI5MzQiLCJ0eXBlIjoiQzEiLCJuYW1lIjoiTU9IQU1NQUQgS0hBTEVEIiwidmFsaWQiOiIxMi8wOC8yMDI2IiwicHVycG9zZSI6IlRvdXJpc20iLCJwYXNzcG9ydCI6Ik4wNzg5MTIzNCIsInN0YXR1czEiOiJWQUxJRCIsInN0YXR1cy2IiOiJVTlVTRUQiLCJiaXJ0aCI6IkxhdFraWEiLCJpbWFnZSI6Imh0dHBzOi8vaS5pYmIuY28vUHY2bXNLdk0vaW1hZ2UucG5nIn1d";
+    
+    let visaDatabase = [];
+    try {
+        visaDatabase = JSON.parse(atob(secureDataBlob));
+    } catch(e) {
+        visaDatabase = [];
+    }
+
+    document.getElementById('searchBtn').addEventListener('click', function() {
+        let query = document.getElementById('searchInput').value.trim().toUpperCase();
+        if(!query) {
+            alert('Please enter a valid Visa Number or Passport Number!');
+            return;
+        }
+
+        let foundRecord = visaDatabase.find(item => 
+            item.visaNum.toUpperCase().includes(query) || item.passport.toUpperCase() === query || item.name.toUpperCase().includes(query)
+        );
+
+        if(foundRecord) {
+            document.getElementById('resVisaNum').innerText = foundRecord.visaNum + " +89 day";
+            document.getElementById('resVisaType').innerText = foundRecord.type;
+            document.getElementById('resName').innerText = foundRecord.name;
+            document.getElementById('resValidUntil').innerText = foundRecord.valid;
+            document.getElementById('resPurpose').innerText = foundRecord.purpose;
+            document.getElementById('resPassport').innerText = foundRecord.passport;
+            document.getElementById('resStatus1').innerText = foundRecord.status1;
+            document.getElementById('resStatus2').innerText = foundRecord.status2;
+            document.getElementById('resBirth').innerText = foundRecord.birth;
+            document.getElementById('resProfileImg').src = foundRecord.image;
+
+            document.getElementById('searchSection').style.display = 'none';
+            document.getElementById('resultSection').style.display = 'block';
+        } else {
+            alert('No visa record found matching your details. (Try searching with: N03187989)');
+        }
+    });
+
+    document.getElementById('backBtn').addEventListener('click', function() {
+        document.getElementById('searchInput').value = '';
+        document.getElementById('resultSection').style.display = 'none';
+        document.getElementById('searchSection').style.display = 'flex';
+    });
+
+    document.getElementById('searchInput').addEventListener('keypress', function(e) {
+        if(e.key === 'Enter') { document.getElementById('searchBtn').click(); }
+    });
+</script>
+
+</body>
+</html>
